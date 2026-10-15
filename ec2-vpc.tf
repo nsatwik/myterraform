@@ -150,5 +150,10 @@ resource "aws_instance" "my_instance" {
   sudo apt install docker.io -y
   sudo apt install unzip -y
   curl -fsSL https://awscli.amazonaws.com/v2/install.sh | sudo bash -s -- --system
+  wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.61/bin/apache-tomcat-10.1.61.tar.gz /home/ubuntu/apache-tomcat-10.1.61.tar.gz
+  sudo tar -xvzf /home/ubuntu/apache-tomcat-10.1.61.tar.gz -C /opt/
+  sudo mv /opt/apache-tomcat-10.1.61 /opt/tomcat
+  sudo chmod +x /opt/tomcat/bin/*.sh
+  sudo sh /opt/tomcat/bin/startup.sh
   EOF
 }
